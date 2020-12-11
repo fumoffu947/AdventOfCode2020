@@ -53,6 +53,9 @@
     <ClInclude Include="src\adapter_array.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\seting_system.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\example.txt" />
@@ -66,5 +69,6 @@
     <Text Include="Resources\ProblemDay8.txt" />
     <Text Include="Resources\ProblemDay9.txt" />
     <Text Include="Resources\ProblemDay10.txt" />
+    <Text Include="Resources\ProblemDay11.txt" />
   </ItemGroup>
 </Project>

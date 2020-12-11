@@ -22,6 +22,7 @@ using namespace std;
 #include "src/handheld_halting.h"
 #include "src/encoder_error.h"
 #include "src/adapter_array.h"
+#include "src/seting_system.h"
 
 // Need global for the function list to be able to take the lambdas
 vector<any> functionResult(25);
@@ -129,6 +130,16 @@ int main()
 			functionResult[index] = adapter_info;
 			executionTimeForCuntion[index] = timer.tock();
 			fs.close();
+		},
+		[](int index) {
+			// Day 11
+			PrecisionTimer timer;
+			timer.tick();
+			ifstream fs("Resources/ProblemDay11.txt");
+			tuple<int, int> seat_info = day11::get_seat_info(fs);
+			functionResult[index] = seat_info;
+			executionTimeForCuntion[index] = timer.tock();
+			fs.close();
 		}
 	};
 
@@ -203,6 +214,13 @@ int main()
 				get<1>(adapter_info) << endl << "The calculations took: " << executionTime << endl;
 			std::cout << "-----------------------------------------" << endl;
 		},
+		[](any value, string executionTime) {
+			tuple<int, int> seat_info = any_cast<tuple<int, int>>(value);
+			std::cout << endl << "----------------  Day 11  ----------------" << endl;
+			std::cout << "The number of seat occupied after equilibrium reqched with normal rules is : " << get<0>(seat_info) << " the number of seat occupied after equilibrium reqched with advanced rules is : " <<
+				get<1>(seat_info) << endl << "The calculations took: " << executionTime << endl;
+			std::cout << "-----------------------------------------" << endl;
+		},
 	};
 
 	vector<thread> threadVector;
@@ -214,9 +232,9 @@ int main()
 
 	//stringstream fs("409551");
 	//ifstream fs("Resources/example.txt");
-	ifstream fs("Resources/ProblemDay10.txt");
-	tuple<long long, long long> res = day10::get_adapter_info(fs);
-	cout << get<0>(res) << " : " << get<1>(res) << endl;
+	//ifstream fs("Resources/ProblemDay11.txt");
+	//tuple<long long, long long> res = day11::get_seat_info(fs);
+	//cout << get<0>(res) << " : " << get<1>(res) << endl;
 
 	cout << "Helping Santa, calculating problems..." << endl;
 	// Start all the problem solutions
