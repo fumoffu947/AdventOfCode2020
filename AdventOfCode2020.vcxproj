@@ -162,6 +162,7 @@
     <ClInclude Include="src\handy_haversacks.h" />
     <ClInclude Include="src\passport_processing.h" />
     <ClInclude Include="src\password_philosophy.h" />
+    <ClInclude Include="src\rain_risk.h" />
     <ClInclude Include="src\report_repair.h" />
     <ClInclude Include="src\seting_system.h" />
     <ClInclude Include="src\toboggan_traj.h" />
@@ -172,6 +173,7 @@
     <Text Include="Resources\ProblemDay1.txt" />
     <Text Include="Resources\ProblemDay10.txt" />
     <Text Include="Resources\ProblemDay11.txt" />
+    <Text Include="Resources\ProblemDay12.txt" />
     <Text Include="Resources\ProblemDay2.txt" />
     <Text Include="Resources\ProblemDay3.txt" />
     <Text Include="Resources\ProblemDay4.txt" />

@@ -66,30 +66,6 @@ namespace day11 {
 		return count;
 	}
 
-	int step_world(w_ptr src_world, w_ptr dest_world, char empty, char filled) {
-		int change_count = 0;
-		for (int y = 0; y < src_world->size(); ++y) {
-			for (int x = 0; x < (*src_world)[y].size(); ++x) {
-				char res = (*src_world)[y][x];
-				int neighbour_count = count_neighbours(src_world, y, x, filled);
-				if ((*src_world)[y][x] == empty) {
-					if (neighbour_count == 0) {
-						res = filled;
-						change_count++;
-					}
-				}
-				else if ((*src_world)[y][x] == filled) {
-					if (neighbour_count > 3) {
-						res = empty;
-						change_count++;
-					}
-				}
-				(*dest_world)[y][x] = res;
-			}
-		}
-		return change_count;
-	}
-
 	int step_world_advanced(w_ptr src_world, w_ptr dest_world, char empty, char filled, char none, int to_empty_count, bool advanced) {
 		int change_count = 0;
 		for (int y = 0; y < src_world->size(); ++y) {

@@ -23,6 +23,7 @@ using namespace std;
 #include "src/encoder_error.h"
 #include "src/adapter_array.h"
 #include "src/seting_system.h"
+#include "src/rain_risk.h"
 
 // Need global for the function list to be able to take the lambdas
 vector<any> functionResult(25);
@@ -140,6 +141,16 @@ int main()
 			functionResult[index] = seat_info;
 			executionTimeForCuntion[index] = timer.tock();
 			fs.close();
+		},
+			[](int index) {
+			// Day 12
+			PrecisionTimer timer;
+			timer.tick();
+			ifstream fs("Resources/ProblemDay12.txt");
+			tuple<int, int> boat_pos_info = day12::get_boat_info(fs);
+			functionResult[index] = boat_pos_info;
+			executionTimeForCuntion[index] = timer.tock();
+			fs.close();
 		}
 	};
 
@@ -221,6 +232,13 @@ int main()
 				get<1>(seat_info) << endl << "The calculations took: " << executionTime << endl;
 			std::cout << "-----------------------------------------" << endl;
 		},
+		[](any value, string executionTime) {
+			tuple<int, int> boat_pos_info = any_cast<tuple<int, int>>(value);
+			std::cout << endl << "----------------  Day 12  ----------------" << endl;
+			std::cout << "The manhattan distance to the boat destination with first steering rules is : " << get<0>(boat_pos_info) << " the manhattan distance to the boat destination with first steering rules is : " <<
+				get<1>(boat_pos_info) << endl << "The calculations took: " << executionTime << endl;
+			std::cout << "-----------------------------------------" << endl;
+		}
 	};
 
 	vector<thread> threadVector;
@@ -232,8 +250,8 @@ int main()
 
 	//stringstream fs("409551");
 	//ifstream fs("Resources/example.txt");
-	//ifstream fs("Resources/ProblemDay11.txt");
-	//tuple<long long, long long> res = day11::get_seat_info(fs);
+	//ifstream fs("Resources/ProblemDay12.txt");
+	//tuple<long long, long long> res = day12::get_boat_info(fs);
 	//cout << get<0>(res) << " : " << get<1>(res) << endl;
 
 	cout << "Helping Santa, calculating problems..." << endl;
