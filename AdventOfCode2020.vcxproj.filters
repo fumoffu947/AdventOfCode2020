@@ -62,6 +62,9 @@
     <ClInclude Include="src\shuttle_search.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\docking_data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\example.txt" />
@@ -78,5 +81,6 @@
     <Text Include="Resources\ProblemDay11.txt" />
     <Text Include="Resources\ProblemDay12.txt" />
     <Text Include="Resources\ProblemDay13.txt" />
+    <Text Include="Resources\ProblemDay14.txt" />
   </ItemGroup>
 </Project>

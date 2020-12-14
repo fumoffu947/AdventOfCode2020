@@ -25,6 +25,7 @@ using namespace std;
 #include "src/seting_system.h"
 #include "src/rain_risk.h"
 #include "src/shuttle_search.h"
+#include "src/docking_data.h"
 
 // Need global for the function list to be able to take the lambdas
 vector<any> functionResult(25);
@@ -162,6 +163,16 @@ int main()
 			functionResult[index] = bus_schedule_info;
 			executionTimeForCuntion[index] = timer.tock();
 			fs.close();
+		},
+			[](int index) {
+			// Day 14
+			PrecisionTimer timer;
+			timer.tick();
+			ifstream fs("Resources/ProblemDay14.txt");
+			tuple<unsigned long long, unsigned long long> docking_init_data = day14::get_docking_data(fs);
+			functionResult[index] = docking_init_data;
+			executionTimeForCuntion[index] = timer.tock();
+			fs.close();
 		}
 	};
 
@@ -256,6 +267,13 @@ int main()
 			std::cout << "The the time to the earliest times the id is : " << get<0>(bus_schedule_info) << " the first time the buses right after each other is : " <<
 				get<1>(bus_schedule_info) << endl << "The calculations took: " << executionTime << endl;
 			std::cout << "-----------------------------------------" << endl;
+		},
+		[](any value, string executionTime) {
+			tuple<unsigned long long, unsigned  long long> docking_init_data = any_cast<tuple<unsigned long long, unsigned long long>>(value);
+			std::cout << endl << "----------------  Day 14  ----------------" << endl;
+			std::cout << "The sum of the docking initialisation values is : " << get<0>(docking_init_data) << " the sum of the docking initialisation values with addres maskingis : " <<
+				get<1>(docking_init_data) << endl << "The calculations took: " << executionTime << endl;
+			std::cout << "-----------------------------------------" << endl;
 		}
 	};
 
@@ -268,8 +286,8 @@ int main()
 
 	//stringstream fs("409551");
 	//ifstream fs("Resources/example.txt");
-	//ifstream fs("Resources/ProblemDay13.txt");
-	//tuple<long long, long long> res = day13::get_bus_schedule_info(fs);
+	//ifstream fs("Resources/ProblemDay14.txt");
+	//tuple<long long, long long> res = day14::get_docking_data(fs);
 	//cout << get<0>(res) << " : " << get<1>(res) << endl;
 
 	cout << "Helping Santa, calculating problems..." << endl;

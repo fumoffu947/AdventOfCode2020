@@ -157,6 +157,7 @@
     <ClInclude Include="src\adapter_array.h" />
     <ClInclude Include="src\binary_boarding.h" />
     <ClInclude Include="src\custom_customs.h" />
+    <ClInclude Include="src\docking_data.h" />
     <ClInclude Include="src\encoder_error.h" />
     <ClInclude Include="src\handheld_halting.h" />
     <ClInclude Include="src\handy_haversacks.h" />
@@ -176,6 +177,7 @@
     <Text Include="Resources\ProblemDay11.txt" />
     <Text Include="Resources\ProblemDay12.txt" />
     <Text Include="Resources\ProblemDay13.txt" />
+    <Text Include="Resources\ProblemDay14.txt" />
     <Text Include="Resources\ProblemDay2.txt" />
     <Text Include="Resources\ProblemDay3.txt" />
     <Text Include="Resources\ProblemDay4.txt" />
