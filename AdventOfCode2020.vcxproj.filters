@@ -65,6 +65,9 @@
     <ClInclude Include="src\docking_data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\rambunctious_recitation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\example.txt" />
@@ -82,5 +85,6 @@
     <Text Include="Resources\ProblemDay12.txt" />
     <Text Include="Resources\ProblemDay13.txt" />
     <Text Include="Resources\ProblemDay14.txt" />
+    <Text Include="Resources\ProblemDay15.txt" />
   </ItemGroup>
 </Project>

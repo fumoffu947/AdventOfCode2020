@@ -26,6 +26,7 @@ using namespace std;
 #include "src/rain_risk.h"
 #include "src/shuttle_search.h"
 #include "src/docking_data.h"
+#include "src/rambunctious_recitation.h"
 
 // Need global for the function list to be able to take the lambdas
 vector<any> functionResult(25);
@@ -173,6 +174,16 @@ int main()
 			functionResult[index] = docking_init_data;
 			executionTimeForCuntion[index] = timer.tock();
 			fs.close();
+		},
+			[](int index) {
+			// Day 14
+			PrecisionTimer timer;
+			timer.tick();
+			ifstream fs("Resources/ProblemDay15.txt");
+			tuple<int, int> mem_game_info = day15::get_mem_game_info(fs);
+			functionResult[index] = mem_game_info;
+			executionTimeForCuntion[index] = timer.tock();
+			fs.close(); 
 		}
 	};
 
@@ -274,6 +285,13 @@ int main()
 			std::cout << "The sum of the docking initialisation values is : " << get<0>(docking_init_data) << " the sum of the docking initialisation values with addres maskingis : " <<
 				get<1>(docking_init_data) << endl << "The calculations took: " << executionTime << endl;
 			std::cout << "-----------------------------------------" << endl;
+		},
+		[](any value, string executionTime) {
+			tuple<int, int> mem_game_info = any_cast<tuple<int, int>>(value);
+			std::cout << endl << "----------------  Day 15  ----------------" << endl;
+			std::cout << "The 2020th number of the memory game is : " << get<0>(mem_game_info) << " the 30 000 000th number of the memory game is : " <<
+				get<1>(mem_game_info) << endl << "The calculations took: " << executionTime << endl;
+			std::cout << "-----------------------------------------" << endl;
 		}
 	};
 
@@ -286,8 +304,8 @@ int main()
 
 	//stringstream fs("409551");
 	//ifstream fs("Resources/example.txt");
-	//ifstream fs("Resources/ProblemDay14.txt");
-	//tuple<long long, long long> res = day14::get_docking_data(fs);
+	//ifstream fs("Resources/ProblemDay15.txt");
+	//tuple<int, int> res = day15::get_mem_game_info(fs);
 	//cout << get<0>(res) << " : " << get<1>(res) << endl;
 
 	cout << "Helping Santa, calculating problems..." << endl;
