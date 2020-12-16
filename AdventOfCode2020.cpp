@@ -27,6 +27,7 @@ using namespace std;
 #include "src/shuttle_search.h"
 #include "src/docking_data.h"
 #include "src/rambunctious_recitation.h"
+#include "src/ticker_translation.h"
 
 // Need global for the function list to be able to take the lambdas
 vector<any> functionResult(25);
@@ -176,7 +177,7 @@ int main()
 			fs.close();
 		},
 			[](int index) {
-			// Day 14
+			// Day 15
 			PrecisionTimer timer;
 			timer.tick();
 			ifstream fs("Resources/ProblemDay15.txt");
@@ -184,6 +185,16 @@ int main()
 			functionResult[index] = mem_game_info;
 			executionTimeForCuntion[index] = timer.tock();
 			fs.close(); 
+		},
+			[](int index) {
+			// Day 16
+			PrecisionTimer timer;
+			timer.tick();
+			ifstream fs("Resources/ProblemDay16.txt");
+			tuple<long long, long long> ticket_info = day16::get_ticket_info(fs);
+			functionResult[index] = ticket_info;
+			executionTimeForCuntion[index] = timer.tock();
+			fs.close();
 		}
 	};
 
@@ -292,6 +303,13 @@ int main()
 			std::cout << "The 2020th number of the memory game is : " << get<0>(mem_game_info) << " the 30 000 000th number of the memory game is : " <<
 				get<1>(mem_game_info) << endl << "The calculations took: " << executionTime << endl;
 			std::cout << "-----------------------------------------" << endl;
+		},
+		[](any value, string executionTime) {
+			tuple<long long, long long> ticket_into = any_cast<tuple<long long, long long>>(value);
+			std::cout << endl << "----------------  Day 16  ----------------" << endl;
+			std::cout << "The the error sum of the unvalid tickets is : " << get<0>(ticket_into) << " the multiplication of the departure fiels is : " <<
+				get<1>(ticket_into) << endl << "The calculations took: " << executionTime << endl;
+			std::cout << "-----------------------------------------" << endl;
 		}
 	};
 
@@ -304,8 +322,8 @@ int main()
 
 	//stringstream fs("409551");
 	//ifstream fs("Resources/example.txt");
-	//ifstream fs("Resources/ProblemDay15.txt");
-	//tuple<int, int> res = day15::get_mem_game_info(fs);
+	//ifstream fs("Resources/ProblemDay16.txt");
+	//tuple<long long, long long> res = day16::get_ticket_info(fs);
 	//cout << get<0>(res) << " : " << get<1>(res) << endl;
 
 	cout << "Helping Santa, calculating problems..." << endl;
