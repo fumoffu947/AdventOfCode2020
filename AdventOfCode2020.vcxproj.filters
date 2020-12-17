@@ -71,6 +71,9 @@
     <ClInclude Include="src\ticker_translation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\conway_cubes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\example.txt" />
@@ -90,5 +93,6 @@
     <Text Include="Resources\ProblemDay14.txt" />
     <Text Include="Resources\ProblemDay15.txt" />
     <Text Include="Resources\ProblemDay16.txt" />
+    <Text Include="Resources\ProblemDay17.txt" />
   </ItemGroup>
 </Project>

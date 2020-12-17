@@ -156,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="src\adapter_array.h" />
     <ClInclude Include="src\binary_boarding.h" />
+    <ClInclude Include="src\conway_cubes.h" />
     <ClInclude Include="src\custom_customs.h" />
     <ClInclude Include="src\docking_data.h" />
     <ClInclude Include="src\encoder_error.h" />
@@ -182,6 +183,7 @@
     <Text Include="Resources\ProblemDay14.txt" />
     <Text Include="Resources\ProblemDay15.txt" />
     <Text Include="Resources\ProblemDay16.txt" />
+    <Text Include="Resources\ProblemDay17.txt" />
     <Text Include="Resources\ProblemDay2.txt" />
     <Text Include="Resources\ProblemDay3.txt" />
     <Text Include="Resources\ProblemDay4.txt" />

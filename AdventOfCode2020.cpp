@@ -28,6 +28,7 @@ using namespace std;
 #include "src/docking_data.h"
 #include "src/rambunctious_recitation.h"
 #include "src/ticker_translation.h"
+#include "src/conway_cubes.h"
 
 // Need global for the function list to be able to take the lambdas
 vector<any> functionResult(25);
@@ -195,6 +196,16 @@ int main()
 			functionResult[index] = ticket_info;
 			executionTimeForCuntion[index] = timer.tock();
 			fs.close();
+		},
+			[](int index) {
+			// Day 17
+			PrecisionTimer timer;
+			timer.tick();
+			ifstream fs("Resources/ProblemDay17.txt");
+			tuple<int, int> energy_grid_info = day17::get_energy_info(fs);
+			functionResult[index] = energy_grid_info;
+			executionTimeForCuntion[index] = timer.tock();
+			fs.close();
 		}
 	};
 
@@ -310,6 +321,13 @@ int main()
 			std::cout << "The the error sum of the unvalid tickets is : " << get<0>(ticket_into) << " the multiplication of the departure fiels is : " <<
 				get<1>(ticket_into) << endl << "The calculations took: " << executionTime << endl;
 			std::cout << "-----------------------------------------" << endl;
+		},
+		[](any value, string executionTime) {
+			tuple<int, int> energy_grid_info = any_cast<tuple<int, int>>(value);
+			std::cout << endl << "----------------  Day 17  ----------------" << endl;
+			std::cout << "The number of active cubes with 3 dimentions after 6 iterations is : " << get<0>(energy_grid_info) << " the number of active cubes with 4 dimentions after 6 iterations is : " <<
+				get<1>(energy_grid_info) << endl << "The calculations took: " << executionTime << endl;
+			std::cout << "-----------------------------------------" << endl;
 		}
 	};
 
@@ -322,8 +340,8 @@ int main()
 
 	//stringstream fs("409551");
 	//ifstream fs("Resources/example.txt");
-	//ifstream fs("Resources/ProblemDay16.txt");
-	//tuple<long long, long long> res = day16::get_ticket_info(fs);
+	//ifstream fs("Resources/ProblemDay17.txt");
+	//tuple<int, int> res = day17::get_energy_info(fs);
 	//cout << get<0>(res) << " : " << get<1>(res) << endl;
 
 	cout << "Helping Santa, calculating problems..." << endl;
