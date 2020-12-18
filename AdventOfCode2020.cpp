@@ -29,6 +29,7 @@ using namespace std;
 #include "src/rambunctious_recitation.h"
 #include "src/ticker_translation.h"
 #include "src/conway_cubes.h"
+#include "src/operation_order.h"
 
 // Need global for the function list to be able to take the lambdas
 vector<any> functionResult(25);
@@ -206,6 +207,16 @@ int main()
 			functionResult[index] = energy_grid_info;
 			executionTimeForCuntion[index] = timer.tock();
 			fs.close();
+		},
+			[](int index) {
+			// Day 18
+			PrecisionTimer timer;
+			timer.tick();
+			ifstream fs("Resources/ProblemDay18.txt");
+			tuple<long long, long long> equations_info = day18::get_math_result(fs);
+			functionResult[index] = equations_info;
+			executionTimeForCuntion[index] = timer.tock();
+			fs.close();
 		}
 	};
 
@@ -328,6 +339,13 @@ int main()
 			std::cout << "The number of active cubes with 3 dimentions after 6 iterations is : " << get<0>(energy_grid_info) << " the number of active cubes with 4 dimentions after 6 iterations is : " <<
 				get<1>(energy_grid_info) << endl << "The calculations took: " << executionTime << endl;
 			std::cout << "-----------------------------------------" << endl;
+		},
+		[](any value, string executionTime) {
+			tuple<long long, long long> equations_info = any_cast<tuple<long long, long long>>(value);
+			std::cout << endl << "----------------  Day 18  ----------------" << endl;
+			std::cout << "The sum of the math equation results with first set of rules is : " << get<0>(equations_info) << " the sum of the math equation results with second set of rules is : " <<
+				get<1>(equations_info) << endl << "The calculations took: " << executionTime << endl;
+			std::cout << "-----------------------------------------" << endl;
 		}
 	};
 
@@ -340,8 +358,8 @@ int main()
 
 	//stringstream fs("409551");
 	//ifstream fs("Resources/example.txt");
-	//ifstream fs("Resources/ProblemDay17.txt");
-	//tuple<int, int> res = day17::get_energy_info(fs);
+	//ifstream fs("Resources/ProblemDay18.txt");
+	//tuple<long long, long long> res = day18::get_math_result(fs);
 	//cout << get<0>(res) << " : " << get<1>(res) << endl;
 
 	cout << "Helping Santa, calculating problems..." << endl;
