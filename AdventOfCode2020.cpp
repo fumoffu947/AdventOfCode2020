@@ -30,6 +30,7 @@ using namespace std;
 #include "src/ticker_translation.h"
 #include "src/conway_cubes.h"
 #include "src/operation_order.h"
+#include "src/monster_messages.h"
 
 // Need global for the function list to be able to take the lambdas
 vector<any> functionResult(25);
@@ -217,6 +218,16 @@ int main()
 			functionResult[index] = equations_info;
 			executionTimeForCuntion[index] = timer.tock();
 			fs.close();
+		},
+			[](int index) {
+			// Day 19
+			PrecisionTimer timer;
+			timer.tick();
+			ifstream fs("Resources/ProblemDay19.txt");
+			tuple<int, int> messages_info = day19::get_message_info(fs);
+			functionResult[index] = messages_info;
+			executionTimeForCuntion[index] = timer.tock();
+			fs.close();
 		}
 	};
 
@@ -346,6 +357,13 @@ int main()
 			std::cout << "The sum of the math equation results with first set of rules is : " << get<0>(equations_info) << " the sum of the math equation results with second set of rules is : " <<
 				get<1>(equations_info) << endl << "The calculations took: " << executionTime << endl;
 			std::cout << "-----------------------------------------" << endl;
+		},
+		[](any value, string executionTime) {
+			tuple<int, int> equations_info = any_cast<tuple<int, int>>(value);
+			std::cout << endl << "----------------  Day 19  ----------------" << endl;
+			std::cout << "The number of messages that match without loops is : " << get<0>(equations_info) << " the number of messages that match with loops is : " <<
+				get<1>(equations_info) << endl << "The calculations took: " << executionTime << endl;
+			std::cout << "-----------------------------------------" << endl;
 		}
 	};
 
@@ -358,8 +376,8 @@ int main()
 
 	//stringstream fs("409551");
 	//ifstream fs("Resources/example.txt");
-	//ifstream fs("Resources/ProblemDay18.txt");
-	//tuple<long long, long long> res = day18::get_math_result(fs);
+	//ifstream fs("Resources/ProblemDay19.txt");
+	//tuple<int, int> res = day19::get_message_info(fs);
 	//cout << get<0>(res) << " : " << get<1>(res) << endl;
 
 	cout << "Helping Santa, calculating problems..." << endl;

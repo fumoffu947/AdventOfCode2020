@@ -77,6 +77,9 @@
     <ClInclude Include="src\operation_order.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\monster_messages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\example.txt" />
@@ -98,5 +101,6 @@
     <Text Include="Resources\ProblemDay16.txt" />
     <Text Include="Resources\ProblemDay17.txt" />
     <Text Include="Resources\ProblemDay18.txt" />
+    <Text Include="Resources\ProblemDay19.txt" />
   </ItemGroup>
 </Project>
