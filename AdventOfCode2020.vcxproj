@@ -162,6 +162,7 @@
     <ClInclude Include="src\encoder_error.h" />
     <ClInclude Include="src\handheld_halting.h" />
     <ClInclude Include="src\handy_haversacks.h" />
+    <ClInclude Include="src\jurassic_jigsaw.h" />
     <ClInclude Include="src\monster_messages.h" />
     <ClInclude Include="src\operation_order.h" />
     <ClInclude Include="src\passport_processing.h" />
@@ -189,6 +190,7 @@
     <Text Include="Resources\ProblemDay18.txt" />
     <Text Include="Resources\ProblemDay19.txt" />
     <Text Include="Resources\ProblemDay2.txt" />
+    <Text Include="Resources\ProblemDay20.txt" />
     <Text Include="Resources\ProblemDay3.txt" />
     <Text Include="Resources\ProblemDay4.txt" />
     <Text Include="Resources\ProblemDay5.txt" />

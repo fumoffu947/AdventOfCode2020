@@ -31,6 +31,7 @@ using namespace std;
 #include "src/conway_cubes.h"
 #include "src/operation_order.h"
 #include "src/monster_messages.h"
+#include "src/jurassic_jigsaw.h"
 
 // Need global for the function list to be able to take the lambdas
 vector<any> functionResult(25);
@@ -228,6 +229,16 @@ int main()
 			functionResult[index] = messages_info;
 			executionTimeForCuntion[index] = timer.tock();
 			fs.close();
+		},
+			[](int index) {
+			// Day 19
+			PrecisionTimer timer;
+			timer.tick();
+			ifstream fs("Resources/ProblemDay20.txt");
+			tuple<unsigned long long, unsigned long long> satelite_info = day20::get_camera_tile_info(fs);
+			functionResult[index] = satelite_info;
+			executionTimeForCuntion[index] = timer.tock();
+			fs.close();
 		}
 	};
 
@@ -364,6 +375,13 @@ int main()
 			std::cout << "The number of messages that match without loops is : " << get<0>(equations_info) << " the number of messages that match with loops is : " <<
 				get<1>(equations_info) << endl << "The calculations took: " << executionTime << endl;
 			std::cout << "-----------------------------------------" << endl;
+		},
+		[](any value, string executionTime) {
+			tuple<unsigned long long, unsigned long long> equations_info = any_cast<tuple<unsigned long long, unsigned long long>>(value);
+			std::cout << endl << "----------------  Day 20  ----------------" << endl;
+			std::cout << "The multiplication of corner ids is : " << get<0>(equations_info) << " the number of squares excluding the monsters is : " <<
+				get<1>(equations_info) << endl << "The calculations took: " << executionTime << endl;
+			std::cout << "-----------------------------------------" << endl;
 		}
 	};
 
@@ -376,8 +394,8 @@ int main()
 
 	//stringstream fs("409551");
 	//ifstream fs("Resources/example.txt");
-	//ifstream fs("Resources/ProblemDay19.txt");
-	//tuple<int, int> res = day19::get_message_info(fs);
+	//ifstream fs("Resources/ProblemDay20.txt");
+	//tuple<unsigned long long, unsigned long long> res = day20::get_camera_tile_info(fs);
 	//cout << get<0>(res) << " : " << get<1>(res) << endl;
 
 	cout << "Helping Santa, calculating problems..." << endl;
