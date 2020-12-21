@@ -83,6 +83,9 @@
     <ClInclude Include="src\jurassic_jigsaw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\allergen_assessment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\example.txt" />
@@ -106,5 +109,6 @@
     <Text Include="Resources\ProblemDay18.txt" />
     <Text Include="Resources\ProblemDay19.txt" />
     <Text Include="Resources\ProblemDay20.txt" />
+    <Text Include="Resources\ProblemDay21.txt" />
   </ItemGroup>
 </Project>
