@@ -33,6 +33,7 @@ using namespace std;
 #include "src/monster_messages.h"
 #include "src/jurassic_jigsaw.h"
 #include "src/allergen_assessment.h"
+#include "src/crab_combat.h"
 
 // Need global for the function list to be able to take the lambdas
 vector<any> functionResult(25);
@@ -250,6 +251,16 @@ int main()
 			functionResult[index] = ingredients_info;
 			executionTimeForCuntion[index] = timer.tock();
 			fs.close();
+		},
+			[](int index) {
+			// Day 21
+			PrecisionTimer timer;
+			timer.tick();
+			ifstream fs("Resources/ProblemDay22.txt");
+			tuple<int, int> game_result = day22::get_game_result(fs);
+			functionResult[index] = game_result;
+			executionTimeForCuntion[index] = timer.tock();
+			fs.close();
 		}
 	};
 
@@ -400,6 +411,13 @@ int main()
 			std::cout << "The number of times an allergen free ingredient appears is : " << get<0>(ingredients_info) << " the ingredients sorted by the containing allergen are : " <<
 				get<1>(ingredients_info) << endl << "The calculations took: " << executionTime << endl;
 			std::cout << "-----------------------------------------" << endl;
+		},
+		[](any value, string executionTime) {
+			tuple<int, int> game_result = any_cast<tuple<int, int>>(value);
+			std::cout << endl << "----------------  Day 22  ----------------" << endl;
+			std::cout << "The game score when the crab won the normal game is : " << get<0>(game_result) << " the game score when the crab lost with recursive combat rules is : " <<
+				get<1>(game_result) << endl << "The calculations took: " << executionTime << endl;
+			std::cout << "-----------------------------------------" << endl;
 		}
 	};
 
@@ -412,8 +430,8 @@ int main()
 
 	//stringstream fs("409551");
 	//ifstream fs("Resources/example.txt");
-	//ifstream fs("Resources/ProblemDay21.txt");
-	//tuple<int, string> res = day21::get_ingredient_info(fs);
+	//ifstream fs("Resources/ProblemDay22.txt");
+	//tuple<int, int> res = day22::get_game_result(fs);
 	//cout << get<0>(res) << " : " << get<1>(res) << endl;
 
 	cout << "Helping Santa, calculating problems..." << endl;

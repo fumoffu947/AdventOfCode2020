@@ -86,6 +86,9 @@
     <ClInclude Include="src\allergen_assessment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\crab_combat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\example.txt" />
@@ -110,5 +113,6 @@
     <Text Include="Resources\ProblemDay19.txt" />
     <Text Include="Resources\ProblemDay20.txt" />
     <Text Include="Resources\ProblemDay21.txt" />
+    <Text Include="Resources\ProblemDay22.txt" />
   </ItemGroup>
 </Project>
