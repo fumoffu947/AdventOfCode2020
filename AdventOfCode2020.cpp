@@ -34,6 +34,7 @@ using namespace std;
 #include "src/jurassic_jigsaw.h"
 #include "src/allergen_assessment.h"
 #include "src/crab_combat.h"
+#include "src/crab_cups.h"
 
 // Need global for the function list to be able to take the lambdas
 vector<any> functionResult(25);
@@ -253,12 +254,22 @@ int main()
 			fs.close();
 		},
 			[](int index) {
-			// Day 21
+			// Day 22
 			PrecisionTimer timer;
 			timer.tick();
 			ifstream fs("Resources/ProblemDay22.txt");
 			tuple<int, int> game_result = day22::get_game_result(fs);
 			functionResult[index] = game_result;
+			executionTimeForCuntion[index] = timer.tock();
+			fs.close();
+		},
+			[](int index) {
+			// Day 23
+			PrecisionTimer timer;
+			timer.tick();
+			ifstream fs("Resources/ProblemDay23.txt");
+			tuple<long long, long long> cup_info = day23::get_cup_info(fs);
+			functionResult[index] = cup_info;
 			executionTimeForCuntion[index] = timer.tock();
 			fs.close();
 		}
@@ -418,6 +429,13 @@ int main()
 			std::cout << "The game score when the crab won the normal game is : " << get<0>(game_result) << " the game score when the crab lost with recursive combat rules is : " <<
 				get<1>(game_result) << endl << "The calculations took: " << executionTime << endl;
 			std::cout << "-----------------------------------------" << endl;
+		},
+		[](any value, string executionTime) {
+			tuple<long long, long long> cup_info = any_cast<tuple<long long, long long>>(value);
+			std::cout << endl << "----------------  Day 23  ----------------" << endl;
+			std::cout << "The labels after label 1 after 100 moves is : " << get<0>(cup_info) << " the multiplication of the two labels after label 1 is: " <<
+				get<1>(cup_info) << endl << "The calculations took: " << executionTime << endl;
+			std::cout << "-----------------------------------------" << endl;
 		}
 	};
 
@@ -430,8 +448,8 @@ int main()
 
 	//stringstream fs("409551");
 	//ifstream fs("Resources/example.txt");
-	//ifstream fs("Resources/ProblemDay22.txt");
-	//tuple<int, int> res = day22::get_game_result(fs);
+	//ifstream fs("Resources/ProblemDay23.txt");
+	//tuple<long long, long long> res = day23::get_cup_info(fs);
 	//cout << get<0>(res) << " : " << get<1>(res) << endl;
 
 	cout << "Helping Santa, calculating problems..." << endl;

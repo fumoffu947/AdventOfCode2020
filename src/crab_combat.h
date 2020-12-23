@@ -35,7 +35,7 @@ namespace day22 {
 			return card;
 		}
 
-		T add_card(T card) {
+		void add_card(T card) {
 			deck.push_back(card);
 		}
 

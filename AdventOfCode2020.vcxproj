@@ -159,6 +159,7 @@
     <ClInclude Include="src\binary_boarding.h" />
     <ClInclude Include="src\conway_cubes.h" />
     <ClInclude Include="src\crab_combat.h" />
+    <ClInclude Include="src\crab_cups.h" />
     <ClInclude Include="src\custom_customs.h" />
     <ClInclude Include="src\docking_data.h" />
     <ClInclude Include="src\encoder_error.h" />
@@ -195,6 +196,7 @@
     <Text Include="Resources\ProblemDay20.txt" />
     <Text Include="Resources\ProblemDay21.txt" />
     <Text Include="Resources\ProblemDay22.txt" />
+    <Text Include="Resources\ProblemDay23.txt" />
     <Text Include="Resources\ProblemDay3.txt" />
     <Text Include="Resources\ProblemDay4.txt" />
     <Text Include="Resources\ProblemDay5.txt" />

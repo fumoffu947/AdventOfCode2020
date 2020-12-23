@@ -89,6 +89,9 @@
     <ClInclude Include="src\crab_combat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\crab_cups.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\example.txt" />
@@ -114,5 +117,6 @@
     <Text Include="Resources\ProblemDay20.txt" />
     <Text Include="Resources\ProblemDay21.txt" />
     <Text Include="Resources\ProblemDay22.txt" />
+    <Text Include="Resources\ProblemDay23.txt" />
   </ItemGroup>
 </Project>
