@@ -92,6 +92,12 @@
     <ClInclude Include="src\crab_cups.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\lobby_layout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\combo_breaker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\example.txt" />
@@ -118,5 +124,7 @@
     <Text Include="Resources\ProblemDay21.txt" />
     <Text Include="Resources\ProblemDay22.txt" />
     <Text Include="Resources\ProblemDay23.txt" />
+    <Text Include="Resources\ProblemDay24.txt" />
+    <Text Include="Resources\ProblemDay25.txt" />
   </ItemGroup>
 </Project>

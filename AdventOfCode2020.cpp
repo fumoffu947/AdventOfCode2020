@@ -35,6 +35,8 @@ using namespace std;
 #include "src/allergen_assessment.h"
 #include "src/crab_combat.h"
 #include "src/crab_cups.h"
+#include "src/lobby_layout.h"
+#include "src/combo_breaker.h"
 
 // Need global for the function list to be able to take the lambdas
 vector<any> functionResult(25);
@@ -272,6 +274,26 @@ int main()
 			functionResult[index] = cup_info;
 			executionTimeForCuntion[index] = timer.tock();
 			fs.close();
+		},
+			[](int index) {
+			// Day 24
+			PrecisionTimer timer;
+			timer.tick();
+			ifstream fs("Resources/ProblemDay24.txt");
+			tuple<int, int> grid_info = day24::get_tile_info(fs);
+			functionResult[index] = grid_info;
+			executionTimeForCuntion[index] = timer.tock();
+			fs.close();
+		},
+			[](int index) {
+			// Day 25
+			PrecisionTimer timer;
+			timer.tick();
+			ifstream fs("Resources/ProblemDay25.txt");
+			tuple<long long, int> encryption_info = day25::get_encryption_info(fs);
+			functionResult[index] = encryption_info;
+			executionTimeForCuntion[index] = timer.tock();
+			fs.close();
 		}
 	};
 
@@ -436,6 +458,20 @@ int main()
 			std::cout << "The labels after label 1 after 100 moves is : " << get<0>(cup_info) << " the multiplication of the two labels after label 1 is: " <<
 				get<1>(cup_info) << endl << "The calculations took: " << executionTime << endl;
 			std::cout << "-----------------------------------------" << endl;
+		},
+		[](any value, string executionTime) {
+			tuple<int, int> grid_info = any_cast<tuple<int, int>>(value);
+			std::cout << endl << "----------------  Day 24  ----------------" << endl;
+			std::cout << "The number of black tiles after flipping all the idintified tiles : " << get<0>(grid_info) << " the number of black tiles after transforming the tiles for 100 days is : " <<
+				get<1>(grid_info) << endl << "The calculations took: " << executionTime << endl;
+			std::cout << "-----------------------------------------" << endl;
+		},
+		[](any value, string executionTime) {
+			tuple<long long, int> encryption_info = any_cast<tuple<long long, int>>(value);
+			std::cout << endl << "----------------  Day 25  ----------------" << endl;
+			std::cout << "The encryption key for the door and card is : " << get<0>(encryption_info) << " and so it is now time to rest, before going back to fix the machine! " <<
+				endl << "The calculations took: " << executionTime << endl;
+			std::cout << "-----------------------------------------" << endl;
 		}
 	};
 
@@ -448,8 +484,8 @@ int main()
 
 	//stringstream fs("409551");
 	//ifstream fs("Resources/example.txt");
-	//ifstream fs("Resources/ProblemDay23.txt");
-	//tuple<long long, long long> res = day23::get_cup_info(fs);
+	//ifstream fs("Resources/ProblemDay25.txt");
+	//tuple<int, int> res = day25::get_encryption_info(fs);
 	//cout << get<0>(res) << " : " << get<1>(res) << endl;
 
 	cout << "Helping Santa, calculating problems..." << endl;
